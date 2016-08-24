@@ -1,0 +1,7 @@
+application:
+    build: .
+    ports:
+        - "8000:8000"
+    volumes:
+        - /Users/chm/Projekte/docker-symfony/symfony:/usr/src/symfony/symfony
+        - /Users/chm/Projekte/docker-symfony/logs:/usr/src/symfony/symfony/app/logs
