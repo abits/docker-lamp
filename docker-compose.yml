@@ -3,5 +3,5 @@ application:
     ports:
         - "8000:8000"
     volumes:
-        - /Users/chm/Projekte/docker-symfony/symfony:/usr/src/symfony/symfony
-        - /Users/chm/Projekte/docker-symfony/logs:/usr/src/symfony/symfony/app/logs
+        - ./php:/usr/src/php
+        - ./php/logs:/usr/src/php/app/logs

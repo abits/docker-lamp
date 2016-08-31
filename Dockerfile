@@ -10,7 +10,7 @@ RUN apk add --no-cache \
 
 EXPOSE 8000
 
-VOLUME /usr/src/symfony
-WORKDIR /usr/src/symfony
+VOLUME /usr/src/php
+WORKDIR /usr/src/php
 
-CMD ["/usr/local/bin/php", "/usr/src/symfony/symfony/bin/console", "server:run", "0.0.0.0:8000"]
+CMD ["/usr/local/bin/php", "/usr/src/php/bin/console", "server:run", "0.0.0.0:8000"]
