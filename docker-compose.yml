@@ -5,3 +5,12 @@ application:
     volumes:
         - ./php:/usr/src/php
         - ./php/logs:/usr/src/php/app/logs
+    links:
+        - mysql:mysql
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: password
