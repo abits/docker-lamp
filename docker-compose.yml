@@ -4,7 +4,6 @@ application:
         - "8000:8000"
     volumes:
         - ./php:/usr/src/php
-        - ./php/logs:/usr/src/php/app/logs
     links:
         - mysql:mysql
 
