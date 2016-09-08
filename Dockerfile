@@ -10,7 +10,9 @@ RUN apk add --no-cache \
 
 EXPOSE 8000
 
-VOLUME /usr/src/php
-WORKDIR /usr/src/php
+COPY config/php.ini /usr/local/etc/php/
 
-CMD ["/usr/local/bin/php", "/usr/src/php/bin/console", "server:run", "0.0.0.0:8000"]
+VOLUME /usr/src/php
+WORKDIR /usr/src/php/htdocs
+
+CMD ["/usr/local/bin/php", "-S", "0.0.0.0:8000"]
