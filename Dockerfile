@@ -1,4 +1,4 @@
-FROM php:alpine
+FROM php:5.6-alpine
 
 RUN apk add --no-cache \
 	freetype \
@@ -7,6 +7,10 @@ RUN apk add --no-cache \
 	freetype-dev \
 	libpng-dev \
 	libjpeg-turbo-dev \
+    libmcrypt \
+    libltdl \
+    musl \
+    php5-cli \
     php5-json \
     php5-intl \
     php5-mcrypt \
