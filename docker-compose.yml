@@ -1,17 +1,15 @@
-application:
+app:
     build: .
     ports:
         - "8000:8000"
     volumes:
         - ./php:/usr/src/php
     links:
-        - mysql:mysql
+        - db:mysql
 
-mysql:
+db:
   image: mysql
   ports:
     - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: password
-    MYSQL_DATABASE: typo3
-    MYSQL_USER: root
