@@ -34,6 +34,7 @@ RUN apk add --no-cache \
 EXPOSE 8000
 
 COPY config/50-typo3-php.ini /usr/local/etc/php/conf.d
+COPY config/AdditionalConfiguration.php /usr/local/etc/php/htdocs/typo3conf/AdditionalConfiguration.php
 
 VOLUME /usr/src/php
 WORKDIR /usr/src/php/htdocs
