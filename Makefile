@@ -1,6 +1,7 @@
 create:
 	@cd php && composer install
-	#@touch php/htdocs/FIRST_INSTALL
+	@touch php/htdocs/FIRST_INSTALL
+	@mkdir -p php/htdocs/typo3conf		
 	@cp config/AdditionalConfiguration.php php/htdocs/typo3conf/AdditionalConfiguration.php
 
 clean:

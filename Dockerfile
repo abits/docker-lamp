@@ -14,6 +14,7 @@ RUN apk add --no-cache \
     libltdl \
     musl \
     zlib \
+    openssl \
     openssl-dev \
     libxml2-dev \
     php5-cli \
