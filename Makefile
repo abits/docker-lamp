@@ -3,6 +3,7 @@ create:
 	@touch php/htdocs/FIRST_INSTALL
 	@mkdir -p php/htdocs/typo3conf		
 	@cp config/AdditionalConfiguration.php php/htdocs/typo3conf/AdditionalConfiguration.php
+	@docker-compose up --build -d
 
 clean:
 	@rm -f php/composer.lock
@@ -15,3 +16,4 @@ clean:
 	@rm -rf php/htdocs/typo3
 	@rm -f php/htdocs/FIRST_INSTALL
 	@rm -f php/htdocs/*.php
+	@docker-compose down

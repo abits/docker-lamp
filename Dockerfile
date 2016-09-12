@@ -1,7 +1,6 @@
 FROM php:5-alpine
 
 RUN apk add --no-cache \
-    ca-certificates \
     freetype \
     freetype-dev \
     libcrypto1.0 \
@@ -15,7 +14,6 @@ RUN apk add --no-cache \
     libxml2-dev \
     musl \
     openssl \
-    openssl-dev \
     php5-apcu \
     php5-cli \
     php5-gd \
