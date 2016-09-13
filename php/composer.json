@@ -13,6 +13,9 @@
 		"typo3/cms": {
 			"cms-package-dir": "{$vendor-dir}/typo3/cms",
 			"web-dir": "htdocs"
-		}
+		},
+        "helhum/typo3-console": {
+            "install-binary": false
+        }
 	}
 }

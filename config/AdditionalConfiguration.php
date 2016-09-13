@@ -12,3 +12,4 @@
 	 * Extra configuration in order to make TYPO3 complain less.
 	 */
 	$GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale'] = 'de_DE.UTF-8';
+	$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern'] = '127.0.0.1:8000';
