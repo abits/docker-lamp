@@ -26,6 +26,9 @@ fi
 
 CWD=`pwd`
 PATH="$CWD/bin:$PATH"
+TYPO3_ADMIN_USER="admin"
+TYPO3_ADMIN_PASS="adminadmin"
+TYPO3_SITE_TYPE="site"
 
 if [[ -f "$CWD/ENVIRONMENT" ]]; then
     . "$CWD/ENVIRONMENT"
