@@ -1,6 +1,8 @@
 FROM php:5-alpine
 
-RUN apk add --no-cache \
+RUN apk add --update --no-cache \
+	autoconf \
+	build-base \
     freetype \
     freetype-dev \
     libcrypto1.0 \
@@ -28,9 +30,11 @@ RUN apk add --no-cache \
     && docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) mcrypt json intl mysqli zip soap openssl \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-install -j$(getconf _NPROCESSORS_ONLN) gd \
-    && docker-php-ext-enable soap
+    && docker-php-ext-enable soap \
+    && pecl install xdebug
 
 EXPOSE 8000
+EXPOSE 9000
 
 COPY config/50-typo3-php.ini /usr/local/etc/php/conf.d
 COPY config/AdditionalConfiguration.php /usr/local/etc/php/htdocs/typo3conf/AdditionalConfiguration.php

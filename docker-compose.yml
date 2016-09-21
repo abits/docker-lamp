@@ -2,6 +2,7 @@ app:
     build: .
     ports:
         - "8000:8000"
+        - "9000:9000"
     volumes:
         - ./php:/usr/src/php
     links:
