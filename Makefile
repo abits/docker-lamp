@@ -12,22 +12,22 @@ __check_defined = \
       $(error Undefined $1))
 
 create:
-	@echo "\v[Make] Creating new containerized TYPO3 project."
+	@echo "[Make] Creating new containerized TYPO3 project."
 	$(call check_defined, TYPO3_ADMIN_USER, TYPO3_ADMIN_PASS, TYPO3_SITE_TYPE)
 	@cd php && composer install
 	@touch php/htdocs/FIRST_INSTALL
 	@mkdir -p php/htdocs/typo3conf		
 	@cp config/AdditionalConfiguration.php php/htdocs/typo3conf/AdditionalConfiguration.php
 	@docker-compose up --build -d
-	@echo "\v[Make] Installing site."
+	@echo "[Make] Installing site."
 	@docker exec -it dockerlamp_app_1 /usr/src/php/vendor/bin/typo3cms \
 		install:setup --non-interactive --admin-user-name=admin --admin-password=adminadmin --site-setup-type=site | true
-	@echo "\v[Make] Done."
-	@echo "\v[Make] Visit http://127.0.0.1:8000/typo3. Login with username admin and password adminadmin."
+	@echo "[Make] Done."
+	@echo "[Make] Visit http://127.0.0.1:8000/typo3. Login with username admin and password adminadmin."
 
 
 clean:
-	@echo "\v[Make] Wipe and down."
+	@echo "[Make] Wipe and down."
 	@rm -f php/composer.lock
 	@rm -f php/htdocs/check.php
 	@rm -rf php/htdocs/fileadmin/

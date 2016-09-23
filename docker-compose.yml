@@ -6,6 +6,7 @@ app:
         - ./php:/usr/src/php
     links:
         - db:mysql
+        - mail:mail
 
 db:
   image: mysql
@@ -17,3 +18,8 @@ db:
     MYSQL_USER: typo3
     MYSQL_PASSWORD: typo3    
 
+mail:
+    image: mailhog/mailhog
+    ports:
+        - "1025:1025"
+        - "8025:8025"
