@@ -14,9 +14,9 @@ db:
     - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: password
-    MYSQL_DATABASE: typo3
-    MYSQL_USER: typo3
-    MYSQL_PASSWORD: typo3    
+    MYSQL_DATABASE: symfony
+    MYSQL_USER: symfony
+    MYSQL_PASSWORD: symfony    
 
 mail:
     image: mailhog/mailhog
