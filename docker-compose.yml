@@ -1,17 +1,25 @@
-application:
+app:
     build: .
     ports:
         - "8000:8000"
     volumes:
         - ./php:/usr/src/php
     links:
-        - mysql:mysql
+        - db:mysql
+        - mail:mail
 
-mysql:
+db:
   image: mysql
   ports:
     - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: password
-    MYSQL_DATABASE: symfony
-    MYSQL_USER: root
+    MYSQL_DATABASE: typo3
+    MYSQL_USER: typo3
+    MYSQL_PASSWORD: typo3    
+
+mail:
+    image: mailhog/mailhog
+    ports:
+        - "1025:1025"
+        - "8025:8025"
