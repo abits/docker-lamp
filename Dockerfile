@@ -13,4 +13,6 @@ EXPOSE 8000
 VOLUME /usr/src/php
 WORKDIR /usr/src/php
 
-CMD ["/usr/local/bin/php", "/usr/src/php/bin/console", "server:run", "0.0.0.0:8000"]
+COPY bin/* /usr/local/bin/
+
+CMD ["/usr/local/bin/php", "/usr/src/php/app/console", "server:run", "0.0.0.0:8000"]
