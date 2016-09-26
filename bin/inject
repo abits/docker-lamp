@@ -1,0 +1,15 @@
+#!/usr/bin/awk -f
+#injecting environment parameters into symfony configuration
+
+
+BEGIN { FS=":" }
+/database_host/ { $2 = ENVIRON["DB_1_PORT_3306_TCP_ADDR"] } 
+/database_port/ { $2 = ENVIRON["DB_1_PORT_3306_TCP_PORT"] }
+/database_name/ { $2 = ENVIRON["DB_1_ENV_MYSQL_DATABASE"] }
+/database_user/ { $2 = ENVIRON["DB_1_ENV_MYSQL_USER"] }
+/database_password/ { $2 = ENVIRON["DB_1_ENV_MYSQL_PASSWORD"] }
+/mailer_host/ { $2 = ENVIRON["MAIL_PORT_1025_TCP_ADDR"] }
+{ print $1": "$2}
+END {
+	$1 = "    mailer_port"; $2 = ENVIRON["MAIL_PORT_1025_TCP_PORT"]; print $1": "$2
+}
