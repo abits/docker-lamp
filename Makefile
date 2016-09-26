@@ -12,10 +12,10 @@ __check_defined = \
       $(error Undefined $1))
 
 create: clean
+	@curl -LsS https://symfony.com/installer -o bin/symfony
+	@chmod a+x bin/symfony
+	@bin/symfony new php lts
 	@docker-compose up --build -d
-	@$(RUN_IN_DOCKER) "curl -LsS https://symfony.com/installer -o bin/symfony"
-	@$(RUN_IN_DOCKER) "chmod a+x bin/symfony"
-	@$(RUN_IN_DOCKER) "bin/symfony new php lts"
 	@$(RUN_IN_DOCKER) "inject /usr/src/php/app/config/parameters.yml > /usr/src/php/app/config/parameters.tmp"
 	@$(RUN_IN_DOCKER) "mv /usr/src/php/app/config/parameters.tmp /usr/src/php/app/config/parameters.yml" 
 
